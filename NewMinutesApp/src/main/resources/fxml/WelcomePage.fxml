@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="welcome-page" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minutesapp.controller.WelcomePageController">
+    <center>
+        <VBox alignment="CENTER" spacing="25.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label styleClass="welcome-title" text="Minutes Report Application">
+                    <font>
+                        <Font name="System Bold" size="36.0" />
+                    </font>
+                </Label>
+                <Label styleClass="welcome-subtitle" text="Efficiently manage your meeting minutes">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <VBox alignment="CENTER" spacing="15.0">
+                    <children>
+                        <Button fx:id="createReportButton" minWidth="250.0" mnemonicParsing="false" onAction="#handleCreateReport" styleClass="main-action-button" text="Create Minutes Report">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="viewReportsButton" minWidth="250.0" mnemonicParsing="false" onAction="#handleViewReports" styleClass="secondary-button" text="View Reports">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="manageAttendeesButton" minWidth="250.0" mnemonicParsing="false" onAction="#handleManageAttendees" styleClass="secondary-button" text="Manage Attendees">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <Label styleClass="footer-text" text="© 2025 Minutes Report App" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="15.0" />
+            </BorderPane.margin>
+        </Label>
+    </bottom>
+</BorderPane>

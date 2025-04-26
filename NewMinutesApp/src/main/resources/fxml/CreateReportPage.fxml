@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="page-background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minutesapp.controller.CreateReportPageController">
+    <top>
+        <HBox alignment="CENTER" styleClass="header" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="titleLabel" styleClass="page-title" text="Create Minutes Report">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-area" BorderPane.alignment="CENTER">
+            <content>
+                <VBox spacing="15.0">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <children>
+                        <Label styleClass="section-title" text="Meeting Information">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <GridPane hgap="15.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="40.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label styleClass="form-label" text="Title:" />
+                                <TextField fx:id="titleField" styleClass="form-field" GridPane.columnIndex="1" />
+                                <Label styleClass="form-label" text="Meeting Type:" GridPane.columnIndex="2" />
+                                <ComboBox fx:id="meetingTypeComboBox" prefWidth="200.0" styleClass="form-field" GridPane.columnIndex="3" />
+
+                                <Label styleClass="form-label" text="Date:" GridPane.rowIndex="1" />
+                                <DatePicker fx:id="meetingDatePicker" prefWidth="200.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label styleClass="form-label" text="Start Time (HH:MM):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="startTimeField" promptText="e.g. 09:30" styleClass="form-field" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                <Label styleClass="form-label" text="End Time (HH:MM):" GridPane.rowIndex="2" />
+                                <TextField fx:id="endTimeField" promptText="e.g. 10:30" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label styleClass="form-label" text="Location:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <TextField fx:id="locationField" styleClass="form-field" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                            </children>
+                        </GridPane>
+
+                        <Separator styleClass="separator" />
+
+                        <Label styleClass="section-title" text="Attendees">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <HBox spacing="20.0">
+                            <children>
+                                <VBox prefWidth="450.0" spacing="5.0">
+                                    <children>
+                                        <Label styleClass="subsection-title" text="Available Attendees" />
+                                        <TableView fx:id="attendeesTable" prefHeight="150.0">
+                                            <columns>
+                                                <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Name" />
+                                                <TableColumn fx:id="roleColumn" prefWidth="120.0" text="Role" />
+                                                <TableColumn fx:id="departmentColumn" prefWidth="150.0" text="Department" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" spacing="15.0">
+                                    <children>
+                                        <Button fx:id="manageAttendeesButton" mnemonicParsing="false" onAction="#handleAddAttendee" styleClass="action-button" text="&gt;" />
+                                        <Button fx:id="removeAttendeeButton" mnemonicParsing="false" onAction="#handleRemoveAttendee" styleClass="action-button" text="&lt;" />
+                                    </children>
+                                </VBox>
+                                <VBox prefWidth="300.0" spacing="5.0">
+                                    <children>
+                                        <Label styleClass="subsection-title" text="Selected Attendees" />
+                                        <ListView fx:id="selectedAttendeesListView" prefHeight="150.0" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <Separator styleClass="separator" />
+
+                        <Label styleClass="section-title" text="Content">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <GridPane hgap="15.0" vgap="15.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label styleClass="form-label" text="Agenda:" />
+                                <TextArea fx:id="agendaTextArea" prefHeight="100.0" promptText="Enter meeting agenda items..." styleClass="text-area" wrapText="true" GridPane.columnIndex="1" />
+
+                                <Label styleClass="form-label" text="Discussion:" GridPane.rowIndex="1" />
+                                <TextArea fx:id="discussionTextArea" prefHeight="100.0" promptText="Enter meeting discussion topics..." styleClass="text-area" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label styleClass="form-label" text="Decisions:" GridPane.rowIndex="2" />
+                                <TextArea fx:id="decisionsTextArea" prefHeight="100.0" promptText="Enter decisions made during the meeting..." styleClass="text-area" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <Label styleClass="form-label" text="Action Items:" GridPane.rowIndex="3" />
+                                <TextArea fx:id="actionItemsTextArea" prefHeight="100.0" promptText="Enter action items assigned during the meeting..." styleClass="text-area" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="20.0" styleClass="footer" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="saveButton" minWidth="100.0" mnemonicParsing="false" onAction="#handleSave" styleClass="primary-button" text="Save">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" minWidth="100.0" mnemonicParsing="false" onAction="#handleCancel" styleClass="secondary-button" text="Cancel">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,17 @@
+com\minutesapp\controller\ViewReportsPageController.class
+com\minutesapp\controller\CreateReportPageController$1.class
+com\minutesapp\model\Attendee.class
+com\minutesapp\controller\WelcomePageController.class
+com\minutesapp\util\ValidationUtils.class
+com\minutesapp\MinutesReportApp.class
+com\minutesapp\controller\ViewReportsPageController$1.class
+com\minutesapp\dao\AttendeeDAO.class
+com\minutesapp\util\DatabaseConnection.class
+com\minutesapp\util\AlertUtils.class
+com\minutesapp\model\MinutesReport.class
+com\minutesapp\dao\MinutesReportDAO.class
+com\minutesapp\controller\AttendeeController.class
+com\minutesapp\controller\ReportDetailsController.class
+com\minutesapp\controller\ReportDetailsController$1.class
+com\minutesapp\controller\CreateReportPageController.class
+com\minutesapp\controller\ManageAttendeesController.class
